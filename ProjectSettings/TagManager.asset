@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 3
   tags:
   - Anchor
+  - Bomb
+  - 1PointFruit
+  - 3PointFruit
   layers:
   - Default
   - TransparentFX

@@ -21,16 +21,41 @@ public class FruitSpawnerBehavior : MonoBehaviour
     private GameObject pear;
     [SerializeField]
     private GameObject orange;
+    [SerializeField]
+    private GameObject bomb;
+    [SerializeField]
+    public int difficulty;
+    private float spawnFrequency;
+    private float bombSpawnFrequency;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         StartCoroutine(FruitGenerator());
+        StartCoroutine(BombSpawner());
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        switch (difficulty)
+        {
+            case 0:
+                spawnFrequency = Random.Range(4f, 6f);
+                bombSpawnFrequency = Random.Range(5f, 7.5f);
+                break;
+            case 1:
+                spawnFrequency = Random.Range(2f, 4f);
+                bombSpawnFrequency = Random.Range(3f, 5f);
+                break;
+            case 2:
+                spawnFrequency = Random.Range(1f, 2f);
+                bombSpawnFrequency = Random.Range(1.5f, 2.5f);
+                break;
+            case 3:
+                spawnFrequency = 0.1f;
+                bombSpawnFrequency = 0.1f;
+                break;
+        }
     }
 
     private IEnumerator FruitGenerator()
@@ -85,7 +110,17 @@ public class FruitSpawnerBehavior : MonoBehaviour
                         break;
                 }
             } 
-            yield return new WaitForSeconds(Random.Range(0.5f, 2f));
+            yield return new WaitForSeconds(spawnFrequency);
         }
+    }
+
+    private IEnumerator BombSpawner()
+    {
+        while (true)
+        {
+            Instantiate(bomb, transform.position, Quaternion.identity);
+            yield return new WaitForSeconds(bombSpawnFrequency);
+        }
+
     }
 }

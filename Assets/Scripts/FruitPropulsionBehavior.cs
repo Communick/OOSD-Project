@@ -17,6 +17,10 @@ public class FruitPropulsionBehavior : MonoBehaviour
         {
             fruit.AddForce(new Vector3(Random.Range(50f, 100f), Random.Range(500f, 800f)));
         }
+        if (Time.timeSinceLevelLoad < 1)
+        {
+            Destroy(gameObject, 0.001f);
+        }
         
     }
 
