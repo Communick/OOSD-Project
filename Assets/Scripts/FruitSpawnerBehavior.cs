@@ -24,6 +24,8 @@ public class FruitSpawnerBehavior : MonoBehaviour
     [SerializeField]
     private GameObject bomb;
     [SerializeField]
+    private GameObject pearto;
+    [SerializeField]
     public int difficulty;
     private float spawnFrequency;
     private float bombSpawnFrequency;
@@ -55,6 +57,10 @@ public class FruitSpawnerBehavior : MonoBehaviour
                 spawnFrequency = 0.1f;
                 bombSpawnFrequency = 0.1f;
                 break;
+            case 4:
+                spawnFrequency = 3600;
+                bombSpawnFrequency = 3600;
+                break;
         }
     }
 
@@ -62,6 +68,8 @@ public class FruitSpawnerBehavior : MonoBehaviour
     {
         while (true)
         {
+            int peartospawn = Random.Range(0, 100);
+            if (peartospawn == 69) Instantiate(pearto, transform.position, Quaternion.identity);
             int randomFruitGenProba = Random.Range(0, 5);
             if (randomFruitGenProba == 0)
             {

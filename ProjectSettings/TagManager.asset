@@ -8,6 +8,7 @@ TagManager:
   - Bomb
   - 1PointFruit
   - 3PointFruit
+  - Pearto
   layers:
   - Default
   - TransparentFX
