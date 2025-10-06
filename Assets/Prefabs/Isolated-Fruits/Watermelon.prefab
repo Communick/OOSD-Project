@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4199261777724079415}
   - component: {fileID: 2714515264590585021}
   - component: {fileID: 5158405862330099696}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Watermelon
   m_TagString: 1PointFruit
   m_Icon: {fileID: 0}
@@ -4971,7 +4971,7 @@ GameObject:
   - component: {fileID: 2339171593380602526}
   - component: {fileID: 5409437664955383601}
   - component: {fileID: 8777254520036728291}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Watermelon
   m_TagString: Untagged
   m_Icon: {fileID: 0}

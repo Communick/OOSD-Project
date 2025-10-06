@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9114851421721131546}
   - component: {fileID: 4898252464965843941}
   - component: {fileID: 4585586173731577232}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 7406873817975728907}
   - component: {fileID: 8847335051767558827}
   - component: {fileID: 2877560251164453401}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pearto
   m_TagString: Pearto
   m_Icon: {fileID: 0}

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2012410777747677044}
   - component: {fileID: 5140450201514963694}
   - component: {fileID: 2268378877235029872}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GreenApple
   m_TagString: 1PointFruit
   m_Icon: {fileID: 0}
@@ -4971,7 +4971,7 @@ GameObject:
   - component: {fileID: 4740074391296769408}
   - component: {fileID: 8446970741212812777}
   - component: {fileID: 6995130396774697118}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GreenApple
   m_TagString: Untagged
   m_Icon: {fileID: 0}

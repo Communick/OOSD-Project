@@ -27,6 +27,8 @@ public class FruitSpawnerBehavior : MonoBehaviour
     private GameObject pearto;
     [SerializeField]
     public int difficulty;
+    [SerializeField]
+    private GameObject spawner;
     private float spawnFrequency;
     private float bombSpawnFrequency;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -69,7 +71,7 @@ public class FruitSpawnerBehavior : MonoBehaviour
         while (true)
         {
             int peartospawn = Random.Range(0, 100);
-            if (peartospawn == 69) Instantiate(pearto, transform.position, Quaternion.identity);
+            if (peartospawn == 69) Instantiate(pearto, spawner.transform.position, Quaternion.identity);
             int randomFruitGenProba = Random.Range(0, 5);
             if (randomFruitGenProba == 0)
             {
@@ -93,28 +95,28 @@ public class FruitSpawnerBehavior : MonoBehaviour
                 switch (randomFruit)
                 {
                     case 0:
-                        Instantiate(tomato, transform.position, Quaternion.identity);
+                        Instantiate(tomato, spawner.transform.position, Quaternion.identity);
                         break;
                     case 1:
-                        Instantiate(coconut, transform.position, Quaternion.identity);
+                        Instantiate(coconut, spawner.transform.position, Quaternion.identity);
                         break;
                     case 2:
-                        Instantiate(banana, transform.position, Quaternion.identity);
+                        Instantiate(banana, spawner.transform.position, Quaternion.identity);
                         break;
                     case 3:
-                        Instantiate(watermelon, transform.position, Quaternion.identity);
+                        Instantiate(watermelon, spawner.transform.position, Quaternion.identity);
                         break;
                     case 4:
-                        Instantiate(redApple, transform.position, Quaternion.identity);
+                        Instantiate(redApple, spawner.transform.position, Quaternion.identity);
                         break;
                     case 5:
-                        Instantiate(greenApple, transform.position, Quaternion.identity);
+                        Instantiate(greenApple, spawner.transform.position, Quaternion.identity);
                         break;
                     case 6:
-                        Instantiate(pear, transform.position, Quaternion.identity);
+                        Instantiate(pear, spawner.transform.position, Quaternion.identity);
                         break;
                     case 7:
-                        Instantiate(orange, transform.position, Quaternion.identity);
+                        Instantiate(orange, spawner.transform.position, Quaternion.identity);
                         break;
                 }
             } 
@@ -126,7 +128,7 @@ public class FruitSpawnerBehavior : MonoBehaviour
     {
         while (true)
         {
-            Instantiate(bomb, transform.position, Quaternion.identity);
+            Instantiate(bomb, spawner.transform.position, Quaternion.identity);
             yield return new WaitForSeconds(bombSpawnFrequency);
         }
 

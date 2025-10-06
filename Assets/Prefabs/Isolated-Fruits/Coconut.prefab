@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2434348975024215810}
   - component: {fileID: 1535891130392752292}
   - component: {fileID: 1296561569740072864}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Coconut
   m_TagString: 3PointFruit
   m_Icon: {fileID: 0}
@@ -4971,7 +4971,7 @@ GameObject:
   - component: {fileID: 8722263449357715760}
   - component: {fileID: 2703647637062591535}
   - component: {fileID: 8485679603976560998}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Coconut
   m_TagString: Untagged
   m_Icon: {fileID: 0}

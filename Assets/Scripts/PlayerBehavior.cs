@@ -53,6 +53,8 @@ public class PlayerBehavior : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Bomb"))
         {
+            collision.gameObject.GetComponent<ParticleSystem>().Play();
+            Destroy(collision.gameObject);
             HP--;
         }
         if (collision.gameObject.CompareTag("Pearto"))
@@ -72,6 +74,8 @@ public class PlayerBehavior : MonoBehaviour
 
         if (hull != null)
         {
+            target.GetComponent<ParticleSystem>().Play();
+
             GameObject upperHull = hull.CreateUpperHull(target, crossSectionMaterial);
             SetupSliceComponent(upperHull);
 

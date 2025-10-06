@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -4860347197442480523}
   - component: {fileID: 5260680374931559705}
   - component: {fileID: 1294138418529960458}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Orange
   m_TagString: 1PointFruit
   m_Icon: {fileID: 0}
@@ -4971,7 +4971,7 @@ GameObject:
   - component: {fileID: 2856324111728343174}
   - component: {fileID: 423115448906993516}
   - component: {fileID: 7179209791969379174}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Orange
   m_TagString: Untagged
   m_Icon: {fileID: 0}

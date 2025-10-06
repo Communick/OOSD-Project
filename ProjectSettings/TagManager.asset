@@ -6,11 +6,15 @@ TagManager:
   tags:
   - Anchor
   - fruit
+  - 1PointFruit
+  - Bomb
+  - 3PointFruit
+  - Pearto
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Sliceable
   - Water
   - UI
   - 

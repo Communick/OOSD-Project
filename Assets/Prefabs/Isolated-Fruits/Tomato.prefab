@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -8781780856303308265}
   - component: {fileID: 4588973046655574870}
   - component: {fileID: 5469656369557522439}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tomato
   m_TagString: 3PointFruit
   m_Icon: {fileID: 0}
@@ -4971,7 +4971,7 @@ GameObject:
   - component: {fileID: 6327986736573351198}
   - component: {fileID: 1417632198569808367}
   - component: {fileID: 9087663124627441151}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tomato
   m_TagString: Untagged
   m_Icon: {fileID: 0}

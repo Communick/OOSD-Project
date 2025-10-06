@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3214066569682752783}
   - component: {fileID: 7757898698152482643}
   - component: {fileID: 7733937817248411546}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: -2730548030235872356}
   - component: {fileID: 3728282784673597129}
   - component: {fileID: 1115543615913815218}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pear
   m_TagString: 1PointFruit
   m_Icon: {fileID: 0}

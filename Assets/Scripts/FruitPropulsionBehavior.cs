@@ -7,7 +7,7 @@ public class FruitPropulsionBehavior : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        transform.position = new Vector3(Random.Range(-2.5f, 2.5f), 0f);
+        transform.position += new Vector3(Random.Range(-2.5f, 2.5f), 0f);
         fruit.linearVelocity = Vector3.zero;
         if (Random.Range(0, 10) < 5)
         {
