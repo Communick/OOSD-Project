@@ -13,6 +13,8 @@ public class PlayerBehavior : MonoBehaviour
     private LayerMask sliceableLayer;
     [SerializeField]
     private VelocityEstimator velocityEstimator;
+    [SerializeField]
+    private float cutforce;
     private int HP;
     private int score;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -23,12 +25,7 @@ public class PlayerBehavior : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         bool hasHit = Physics.Linecast(startSlicePoint.position, endSlicePoint.position, out RaycastHit hit, sliceableLayer);
         if (hasHit)
@@ -36,18 +33,19 @@ public class PlayerBehavior : MonoBehaviour
             GameObject target = hit.transform.gameObject;
             Slice(target);
         }
-
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("1PointFruit"))
         {
+            Slice(collision.gameObject);
             score++;
             // Add Point Logic to Text
         }
         if (collision.gameObject.CompareTag("3PointFruit"))
         {
+            Slice(collision.gameObject);
             score += 3;
             // Add Point Logic to Text
         }
@@ -59,6 +57,7 @@ public class PlayerBehavior : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Pearto"))
         {
+            Slice(collision.gameObject);
             score += 5;
             // Add Point Logic to Text (5 points)
         }
@@ -67,10 +66,10 @@ public class PlayerBehavior : MonoBehaviour
     public void Slice(GameObject target)
     {
         Vector3 velocity = velocityEstimator.GetVelocityEstimate();
-        Vector3 plane = Vector3.Cross(endSlicePoint.position - startSlicePoint.position, velocity);
-        plane.Normalize();
+        Vector3 planeNormal = Vector3.Cross(endSlicePoint.position - startSlicePoint.position, velocity);
+        planeNormal.Normalize();
 
-        SlicedHull hull = target.Slice(endSlicePoint.position, plane);
+        SlicedHull hull = target.Slice(endSlicePoint.position, planeNormal);
 
         if (hull != null)
         {
@@ -91,6 +90,6 @@ public class PlayerBehavior : MonoBehaviour
         Rigidbody rigidbody = slicedObject.AddComponent<Rigidbody>();
         MeshCollider collider = slicedObject.AddComponent<MeshCollider>();
         collider.convex = true;
-
+        rigidbody.AddExplosionForce(cutforce, slicedObject.transform.position, 1);
     }
 }
