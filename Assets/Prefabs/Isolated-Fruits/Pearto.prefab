@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 79750012854696938}
   - component: {fileID: -6706849913270389275}
   - component: {fileID: -2567309178753444575}
+  - component: {fileID: -2037439991966519369}
+  - component: {fileID: -3292164596208377612}
   m_Layer: 0
   m_Name: Pearto
   m_TagString: Untagged
@@ -30,8 +32,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.19339, y: 0.13, z: 3.4042}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -140,3 +142,33 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2432090755550338912, guid: 26c692f8f91113841ab4cd756ee0d94b, type: 3}
+--- !u!114 &-2037439991966519369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5792179692309559303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a5c0fc0c9c92c8449b25553f5ed26ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FruitPropulsionBehavior
+  fruit: {fileID: -6706849913270389275}
+--- !u!114 &-3292164596208377612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5792179692309559303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78d71bb0f1088044192459d79e1deee4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SliceableFruit
+  capMaterial: {fileID: 2100000, guid: 4a3a5ebab92457e4eb5f50a8288bb175, type: 2}
+  pieceSeparation: 0.02
+  destroyOriginal: 1
+  addRigidbodyToPieces: 1
+  addVelocityMultiplier: 1

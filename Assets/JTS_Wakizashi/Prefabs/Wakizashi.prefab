@@ -10,9 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 472416}
   - component: {fileID: 3381982}
-  - component: {fileID: 5434832}
   - component: {fileID: 2359886}
-  - component: {fileID: 3677292271315891822}
   m_Layer: 0
   m_Name: Wakizashi
   m_TagString: Player
@@ -46,33 +44,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 103460}
   m_Mesh: {fileID: 4300000, guid: 1811095cb3c5f5243a7e99a98d043e86, type: 3}
---- !u!54 &5434832
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 103460}
-  serializedVersion: 5
-  m_Mass: 0.9
-  m_LinearDamping: 0
-  m_AngularDamping: 0.3
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!23 &2359886
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -121,26 +92,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3677292271315891822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 103460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32aa04d6d99d2cd4fad7884ab8d040b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerBehavior
-  startSlicePoint: {fileID: 1208549111064614067}
-  endSlicePoint: {fileID: 165562887323731239}
-  crossSectionMaterial: {fileID: 2100000, guid: 4a3a5ebab92457e4eb5f50a8288bb175, type: 2}
-  sliceableLayer:
-    serializedVersion: 2
-    m_Bits: 8
-  velocityEstimator: {fileID: 412915011255888713}
-  cutforce: 2000
 --- !u!1 &135496
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,6 +156,7 @@ GameObject:
   - component: {fileID: 434460}
   - component: {fileID: 6535606}
   - component: {fileID: 2250669836953623774}
+  - component: {fileID: 187968002567830042}
   m_Layer: 0
   m_Name: collider2
   m_TagString: Untagged
@@ -358,6 +310,24 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &187968002567830042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32aa04d6d99d2cd4fad7884ab8d040b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerBehavior
+  crossSectionMaterial: {fileID: 2100000, guid: 4a3a5ebab92457e4eb5f50a8288bb175, type: 2}
+  sliceableLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  bladeTip: {fileID: 165562887323731239}
+  minCuttingSpeed: 0.1
 --- !u!1 &152308
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,7 +410,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -524,7 +494,7 @@ Transform:
   m_GameObject: {fileID: 2652805711864702466}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.0060000108}
+  m_LocalPosition: {x: 0, y: -0.015, z: 0.058}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -556,7 +526,7 @@ Transform:
   m_GameObject: {fileID: 5416154823768429004}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.028999954, z: 0.45699996}
+  m_LocalPosition: {x: 0, y: 0.0152, z: 0.457}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

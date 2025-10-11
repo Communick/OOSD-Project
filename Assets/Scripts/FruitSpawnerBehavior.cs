@@ -94,129 +94,24 @@ public class FruitSpawnerBehavior : MonoBehaviour
                 {
                     case 0:
                         Instantiate(tomato, spawner.transform.position, Quaternion.identity);
-                        tomato.transform.position += new Vector3(Random.Range(-2.5f, 2.5f), 0f);
-                        tomato.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
-                        if (Random.Range(0, 10) < 5)
-                        {
-                            tomato.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-100f, -50f), Random.Range(500f, 800f)));
-                        }
-                        else
-                        {
-                            tomato.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(50f, 100f), Random.Range(500f, 800f)));
-                        }
-                        if (Time.timeSinceLevelLoad < 1)
-                        {
-                            Destroy(gameObject, 0.001f);
-                        }
-                        else Destroy(gameObject, 7f);
                         break;
                     case 1:
                         Instantiate(coconut, spawner.transform.position, Quaternion.identity);
-                        coconut.transform.position += new Vector3(Random.Range(-2.5f, 2.5f), 0f);
-                        coconut.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
-                        if (Random.Range(0, 10) < 5)
-                        {
-                            coconut.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-100f, -50f), Random.Range(500f, 800f)));
-                        }
-                        else
-                        {
-                            coconut.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(50f, 100f), Random.Range(500f, 800f)));
-                        }
-                        if (Time.timeSinceLevelLoad < 1)
-                        {
-                            Destroy(gameObject, 0.001f);
-                        }
-                        else Destroy(gameObject, 7f);
                         break;
                     case 2:
                         Instantiate(banana, spawner.transform.position, Quaternion.identity);
-                        banana.transform.position += new Vector3(Random.Range(-2.5f, 2.5f), 0f);
-                        banana.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
-                        if (Random.Range(0, 10) < 5)
-                        {
-                            banana.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-100f, -50f), Random.Range(500f, 800f)));
-                        }
-                        else
-                        {
-                            banana.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(50f, 100f), Random.Range(500f, 800f)));
-                        }
-                        if (Time.timeSinceLevelLoad < 1)
-                        {
-                            Destroy(gameObject, 0.001f);
-                        }
-                        else Destroy(gameObject, 7f);
                         break;
                     case 3:
                         Instantiate(watermelon, spawner.transform.position, Quaternion.identity);
-                        watermelon.transform.position += new Vector3(Random.Range(-2.5f, 2.5f), 0f);
-                        tomato.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
-                        if (Random.Range(0, 10) < 5)
-                        {
-                            watermelon.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-100f, -50f), Random.Range(500f, 800f)));
-                        }
-                        else
-                        {
-                            watermelon.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(50f, 100f), Random.Range(500f, 800f)));
-                        }
-                        if (Time.timeSinceLevelLoad < 1)
-                        {
-                            Destroy(gameObject, 0.001f);
-                        }
-                        else Destroy(gameObject, 7f);
                         break;
                     case 4:
                         Instantiate(Apple, spawner.transform.position, Quaternion.identity);
-                        Apple.transform.position += new Vector3(Random.Range(-2.5f, 2.5f), 0f);
-                        Apple.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
-                        if (Random.Range(0, 10) < 5)
-                        {
-                            Apple.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-100f, -50f), Random.Range(500f, 800f)));
-                        }
-                        else
-                        {
-                            Apple.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(50f, 100f), Random.Range(500f, 800f)));
-                        }
-                        if (Time.timeSinceLevelLoad < 1)
-                        {
-                            Destroy(gameObject, 0.001f);
-                        }
-                        else Destroy(gameObject, 7f);
                         break;
                     case 5:
                         Instantiate(pear, spawner.transform.position, Quaternion.identity);
-                        pear.transform.position += new Vector3(Random.Range(-2.5f, 2.5f), 0f);
-                        pear.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
-                        if (Random.Range(0, 10) < 5)
-                        {
-                            pear.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-100f, -50f), Random.Range(500f, 800f)));
-                        }
-                        else
-                        {
-                            pear.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(50f, 100f), Random.Range(500f, 800f)));
-                        }
-                        if (Time.timeSinceLevelLoad < 1)
-                        {
-                            Destroy(gameObject, 0.001f);
-                        }
-                        else Destroy(gameObject, 7f);
                         break;
                     case 6:
                         Instantiate(orange, spawner.transform.position, Quaternion.identity);
-                        orange.transform.position += new Vector3(Random.Range(-2.5f, 2.5f), 0f);
-                        orange.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
-                        if (Random.Range(0, 10) < 5)
-                        {
-                            orange.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-100f, -50f), Random.Range(500f, 800f)));
-                        }
-                        else
-                        {
-                            orange.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(50f, 100f), Random.Range(500f, 800f)));
-                        }
-                        if (Time.timeSinceLevelLoad < 1)
-                        {
-                            Destroy(gameObject, 0.001f);
-                        }
-                        else Destroy(gameObject, 7f);
                         break;
                 }
             } 
@@ -229,21 +124,6 @@ public class FruitSpawnerBehavior : MonoBehaviour
         while (true)
         {
             Instantiate(bomb, spawner.transform.position, Quaternion.identity);
-            bomb.transform.position += new Vector3(Random.Range(-2.5f, 2.5f), 0f);
-            bomb.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
-            if (Random.Range(0, 10) < 5)
-            {
-                bomb.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-100f, -50f), Random.Range(500f, 800f)));
-            }
-            else
-            {
-                bomb.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(50f, 100f), Random.Range(500f, 800f)));
-            }
-            if (Time.timeSinceLevelLoad < 1)
-            {
-                Destroy(gameObject, 0.001f);
-            }
-            else Destroy(gameObject, 7f);
             yield return new WaitForSeconds(bombSpawnFrequency);
         }
 
