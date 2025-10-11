@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -3434990953124491188}
   - component: {fileID: -2192125766076374760}
   m_Layer: 0
-  m_Name: WaterMelon
+  m_Name: Watermelon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 8736014009488940488}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -5.95792, y: -0, z: 5.55036}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalPosition: {x: -7.3984523, y: 0, z: 5.55036}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
