@@ -46,20 +46,20 @@ public class FruitSpawnerBehavior : MonoBehaviour
                 bombSpawnFrequency = Random.Range(5f, 7.5f);
                 break;
             case 1:
+                spawnFrequency = Random.Range(3f, 5f);
+                bombSpawnFrequency = Random.Range(4f, 6f);
+                break;
+            case 2:
                 spawnFrequency = Random.Range(2f, 4f);
                 bombSpawnFrequency = Random.Range(3f, 5f);
                 break;
-            case 2:
-                spawnFrequency = Random.Range(1f, 2f);
-                bombSpawnFrequency = Random.Range(1.5f, 2.5f);
-                break;
             case 3:
-                spawnFrequency = 0.5f;
-                bombSpawnFrequency = 0.5f;
+                spawnFrequency = Random.Range(1f, 3f);
+                bombSpawnFrequency = Random.Range(2f, 4f);
                 break;
             case 4:
-                spawnFrequency = 3600;
-                bombSpawnFrequency = 3600;
+                spawnFrequency = 1f;
+                bombSpawnFrequency = 1f;
                 break;
         }
     }
@@ -127,5 +127,10 @@ public class FruitSpawnerBehavior : MonoBehaviour
             yield return new WaitForSeconds(bombSpawnFrequency);
         }
 
+    }
+
+    public void SetDifficulty(int diff)
+    {
+        difficulty = diff;
     }
 }

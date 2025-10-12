@@ -2082,6 +2082,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wakizashi
       objectReference: {fileID: 0}
+    - target: {fileID: 103460, guid: 923e2c857250b784eb3a49ce857086c2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 472416, guid: 923e2c857250b784eb3a49ce857086c2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2121,6 +2125,22 @@ PrefabInstance:
     - target: {fileID: 472416, guid: 923e2c857250b784eb3a49ce857086c2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 165562887323731239, guid: 923e2c857250b784eb3a49ce857086c2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.012
+      objectReference: {fileID: 0}
+    - target: {fileID: 165562887323731239, guid: 923e2c857250b784eb3a49ce857086c2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.445
+      objectReference: {fileID: 0}
+    - target: {fileID: 1208549111064614067, guid: 923e2c857250b784eb3a49ce857086c2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.018
+      objectReference: {fileID: 0}
+    - target: {fileID: 1208549111064614067, guid: 923e2c857250b784eb3a49ce857086c2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.034
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2905,6 +2925,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wakizashi
       objectReference: {fileID: 0}
+    - target: {fileID: 103460, guid: 923e2c857250b784eb3a49ce857086c2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 472416, guid: 923e2c857250b784eb3a49ce857086c2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2944,6 +2968,14 @@ PrefabInstance:
     - target: {fileID: 472416, guid: 923e2c857250b784eb3a49ce857086c2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1208549111064614067, guid: 923e2c857250b784eb3a49ce857086c2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.004
+      objectReference: {fileID: 0}
+    - target: {fileID: 1208549111064614067, guid: 923e2c857250b784eb3a49ce857086c2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.024
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -5,11 +5,12 @@ using UnityEngine.UI;
 public class DifficultySelector : MonoBehaviour
 {
     public Slider difficultySlider;
-    public TextMeshProUGUI difficultyLabel;  // Référence au texte sous le slider
+    public TextMeshProUGUI difficultyLabel;
+    public int savedDifficulty;
 
     void Start()
     {
-        int savedDifficulty = PlayerPrefs.GetInt("DifficultyLevel", 1);
+        savedDifficulty = PlayerPrefs.GetInt("DifficultyLevel", 1);
         difficultySlider.value = savedDifficulty;
         UpdateDifficultyLabel(savedDifficulty);
     }
