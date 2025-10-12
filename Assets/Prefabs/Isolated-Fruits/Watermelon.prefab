@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 4651190905553654838}
   - component: {fileID: -3434990953124491188}
   - component: {fileID: -2192125766076374760}
+  - component: {fileID: -4260081347966442793}
+  - component: {fileID: -4876147441977712906}
   m_Layer: 0
   m_Name: Watermelon
   m_TagString: Untagged
@@ -140,3 +142,35 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7971818584756157418, guid: 5c22196caf295a4498494de482dfd6f0, type: 3}
+--- !u!114 &-4260081347966442793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8736014009488940488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a5c0fc0c9c92c8449b25553f5ed26ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FruitPropulsionBehavior
+  fruit: {fileID: -3434990953124491188}
+--- !u!114 &-4876147441977712906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8736014009488940488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78d71bb0f1088044192459d79e1deee4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SliceableFruit
+  capMaterial: {fileID: 2100000, guid: 4a3a5ebab92457e4eb5f50a8288bb175, type: 2}
+  pieceSeparation: 0.02
+  destroyOriginal: 1
+  addRigidbodyToPieces: 1
+  addVelocityMultiplier: 1
+  sliceSfxPrefab: {fileID: 0}
+  sliceParticlesPrefab: {fileID: 0}
