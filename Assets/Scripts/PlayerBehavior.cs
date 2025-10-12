@@ -1,5 +1,6 @@
 using UnityEngine;
 using EzySlice;
+using UnityEngine.UI;
 
 public class PlayerBehavior : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class PlayerBehavior : MonoBehaviour
     private int HP;
     private int score;
     public Transform bladeTip;
+    [SerializeField]
+    private GameOver_and_UI UIscreen;
 
     public float minCuttingSpeed = 1.5f;
 
@@ -87,25 +90,26 @@ public class PlayerBehavior : MonoBehaviour
         {
             //SliceOBJ(collision.gameObject);
             score++;
-            // Add Point Logic to Text
+            UIscreen.UpdateScore(score);
         }
         if (collider.CompareTag("3PointFruit"))
         {
             //SliceOBJ(collision.gameObject);
             score += 3;
-            // Add Point Logic to Text
+            UIscreen.UpdateScore(score);
         }
         if (collider.CompareTag("Bomb"))
         {
             collider.GetComponent<ParticleSystem>().Play();
             Destroy(collider);
             HP--;
+            UIscreen.LifeCounter(HP);
         }
         if (collider.CompareTag("Pearto"))
         {
             //SliceOBJ(collision.gameObject);
             score += 5;
-            // Add Point Logic to Text (5 points)
+            UIscreen.UpdateScore(score);
         }
     }
 
