@@ -42,22 +42,26 @@ public class FruitSpawnerBehavior : MonoBehaviour
         switch (difficulty)
         {
             case 0:
+                spawnFrequency = 6f;
+                bombSpawnFrequency = 7.5f;
+                break;
+            case 1:
                 spawnFrequency = Random.Range(4f, 6f);
                 bombSpawnFrequency = Random.Range(5f, 7.5f);
                 break;
-            case 1:
+            case 2:
                 spawnFrequency = Random.Range(3f, 5f);
                 bombSpawnFrequency = Random.Range(4f, 6f);
                 break;
-            case 2:
+            case 3:
                 spawnFrequency = Random.Range(2f, 4f);
                 bombSpawnFrequency = Random.Range(3f, 5f);
                 break;
-            case 3:
+            case 4:
                 spawnFrequency = Random.Range(1f, 3f);
                 bombSpawnFrequency = Random.Range(2f, 4f);
                 break;
-            case 4:
+            case 5:
                 spawnFrequency = 1f;
                 bombSpawnFrequency = 1f;
                 break;
@@ -71,7 +75,7 @@ public class FruitSpawnerBehavior : MonoBehaviour
             int peartospawn = Random.Range(0, 100);
             if (peartospawn == 69) Instantiate(pearto, spawner.transform.position, Quaternion.identity);
             int randomFruitGenProba = Random.Range(0, 5);
-            if (randomFruitGenProba == 0)
+            if (randomFruitGenProba == 0 && difficulty>=2)
             {
                 randomFruitGen = Random.Range(0, 3);
             }

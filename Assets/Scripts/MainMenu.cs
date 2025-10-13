@@ -22,12 +22,16 @@ public class MainMenu : MonoBehaviour
             Menu.SetActive(true);
             Time.timeScale = 0f;
         }
-        spawner.SetDifficulty(difficultySelector.savedDifficulty);
+        if (difficultySelector.currentDifficulty == difficultySelector.savedDifficulty)
+        {
+            spawner.SetDifficulty(difficultySelector.savedDifficulty);
+        }
+        else spawner.SetDifficulty(difficultySelector.currentDifficulty);
     }
 
     void Update()
     {
-        spawner.SetDifficulty(difficultySelector.savedDifficulty);
+        spawner.SetDifficulty(difficultySelector.currentDifficulty);
     }
 
     public void PlayButton()
