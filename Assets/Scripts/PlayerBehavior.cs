@@ -6,11 +6,18 @@ public class PlayerBehavior : MonoBehaviour
 {
     [SerializeField]
     private LayerMask sliceableLayer;
-    private int HP;
-    private int score;
+    [SerializeField]
+    private Transform startSlicePoint;
+    [SerializeField]
+    private Material crossSectionMaterial;
+    [SerializeField]
+    private int cutforce = 2000;
+    [SerializeField]
+    private VelocityEstimator velocityEstimator;
     public Transform bladeTip;
     [SerializeField]
     private GameOver_and_UI UIscreen;
+    public bool started = false;
 
     public float minCuttingSpeed = 1.5f;
 
@@ -20,8 +27,6 @@ public class PlayerBehavior : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        HP = 3;
-        score = 0;
         if (bladeTip == null) bladeTip = transform; // fallback
         lastTipPos = bladeTip.position;
     }
@@ -33,19 +38,19 @@ public class PlayerBehavior : MonoBehaviour
         tipVelocity = (pos - lastTipPos) / Mathf.Max(Time.deltaTime, 1e-6f);
         lastTipPos = pos;
     }
-    /*void FixedUpdate()
+    void FixedUpdate()
     {
-        bool hasHit = Physics.Linecast(startSlicePoint.position, endSlicePoint.position, out RaycastHit hit, sliceableLayer);
+        bool hasHit = Physics.Linecast(startSlicePoint.position, bladeTip.position, out RaycastHit hit, sliceableLayer);
         if (hasHit)
         {
             GameObject target = hit.transform.gameObject;
             SliceOBJ(target);
         }
-    }*/
+    }
 
     // If your BladeTrigger is a separate trigger object with OnTriggerEnter, you can call this there.
     // We'll provide a trigger helper: call TrySliceFromCollision with collision contact.
-    public void TrySliceFromCollider(Collider other, Vector3 contactPoint, Vector3 contactNormal)
+    /*public void TrySliceFromCollider(Collider other, Vector3 contactPoint, Vector3 contactNormal)
     {
         // Only slice on matching layer
         if (((1 << other.gameObject.layer) & sliceableLayer.value) == 0) return;
@@ -78,45 +83,15 @@ public class PlayerBehavior : MonoBehaviour
             // If object not using SliceableFruit component, try slice with static helper
             var helper = other.GetComponentInParent<SliceableFruit>(); // optional
         }
-    }
+    }*/
 
-    private void OnTriggerEnter(Collider collider)
+    public void SliceOBJ(GameObject target)
     {
-        // get closest point
-        Vector3 contactPoint = collider.ClosestPoint(bladeTip.position);
-        Vector3 contactNormal = (contactPoint - bladeTip.position).normalized;
-        TrySliceFromCollider(collider, contactPoint, contactNormal);
-        if (collider.CompareTag("1PointFruit"))
-        {
-            //SliceOBJ(collision.gameObject);
-            score++;
-            UIscreen.UpdateScore(score);
-        }
-        if (collider.CompareTag("3PointFruit"))
-        {
-            //SliceOBJ(collision.gameObject);
-            score += 3;
-            UIscreen.UpdateScore(score);
-        }
-        if (collider.CompareTag("Bomb"))
-        {
-            collider.GetComponent<ParticleSystem>().Play();
-            Destroy(collider);
-            HP--;
-            UIscreen.LifeCounter(HP);
-        }
-        if (collider.CompareTag("Pearto"))
-        {
-            //SliceOBJ(collision.gameObject);
-            score += 5;
-            UIscreen.UpdateScore(score);
-        }
-    }
+        Vector3 velocity = velocityEstimator.GetVelocityEstimate();
+        Vector3 planenormal = Vector3.Cross(bladeTip.position - startSlicePoint.position, velocity);
+        planenormal.Normalize();
 
-    /*public void SliceOBJ(GameObject target)
-    {
-
-        SlicedHull hull = target.Slice(plane.position, plane.up);
+        SlicedHull hull = target.Slice(bladeTip.position, planenormal);
 
         if (hull != null)
         {
@@ -138,5 +113,5 @@ public class PlayerBehavior : MonoBehaviour
         MeshCollider collider = slicedObject.AddComponent<MeshCollider>();
         collider.convex = true;
         rigidbody.AddExplosionForce(cutforce, slicedObject.transform.position, 1);
-    }*/
+    }
 }

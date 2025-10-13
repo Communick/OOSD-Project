@@ -11,11 +11,11 @@ public class FruitPropulsionBehavior : MonoBehaviour
         fruit.linearVelocity = Vector3.zero;
         if (Random.Range(0, 10) < 5)
         {
-            fruit.AddForce(new Vector3(Random.Range(-100f, -50f), Random.Range(500f, 800f)));
+            fruit.AddForce(new Vector3(0, Random.Range(250f, 400f), -5));
         }
         else
         {
-            fruit.AddForce(new Vector3(Random.Range(50f, 100f), Random.Range(500f, 800f)));
+            fruit.AddForce(new Vector3(0, Random.Range(250f, 400f), -5));
         }
         if (Time.timeSinceLevelLoad < 1)
         {

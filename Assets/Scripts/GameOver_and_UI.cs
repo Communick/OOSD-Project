@@ -30,7 +30,8 @@ public class GameOver_and_UI : MonoBehaviour
     }
 
     public void UpdateScore(int score)
-    {   
+    {
+        scoretext.text = "";
         for (int i = 0; i< 6 - score.ToString().Length; i++)
         {
             scoretext.text += "0";

@@ -2082,10 +2082,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wakizashi
       objectReference: {fileID: 0}
-    - target: {fileID: 103460, guid: 923e2c857250b784eb3a49ce857086c2, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 472416, guid: 923e2c857250b784eb3a49ce857086c2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2125,22 +2121,6 @@ PrefabInstance:
     - target: {fileID: 472416, guid: 923e2c857250b784eb3a49ce857086c2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 165562887323731239, guid: 923e2c857250b784eb3a49ce857086c2, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.012
-      objectReference: {fileID: 0}
-    - target: {fileID: 165562887323731239, guid: 923e2c857250b784eb3a49ce857086c2, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.445
-      objectReference: {fileID: 0}
-    - target: {fileID: 1208549111064614067, guid: 923e2c857250b784eb3a49ce857086c2, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.018
-      objectReference: {fileID: 0}
-    - target: {fileID: 1208549111064614067, guid: 923e2c857250b784eb3a49ce857086c2, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.034
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2531,7 +2511,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2447424620550846319, guid: b200f6587d118224eba8467281481800, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3234853630605623997, guid: b200f6587d118224eba8467281481800, type: 3}
       propertyPath: m_RootOrder
@@ -2925,10 +2905,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wakizashi
       objectReference: {fileID: 0}
-    - target: {fileID: 103460, guid: 923e2c857250b784eb3a49ce857086c2, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 472416, guid: 923e2c857250b784eb3a49ce857086c2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2969,19 +2945,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1208549111064614067, guid: 923e2c857250b784eb3a49ce857086c2, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.004
+    - target: {fileID: 412915011255888713, guid: 923e2c857250b784eb3a49ce857086c2, type: 3}
+      propertyPath: velocityAverageFrames
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1208549111064614067, guid: 923e2c857250b784eb3a49ce857086c2, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.024
+    - target: {fileID: 412915011255888713, guid: 923e2c857250b784eb3a49ce857086c2, type: 3}
+      propertyPath: angularVelocityAverageFrames
+      value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3538207252360167121, guid: 923e2c857250b784eb3a49ce857086c2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 152186, guid: 923e2c857250b784eb3a49ce857086c2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 721848673205607660}
   m_SourcePrefab: {fileID: 100100000, guid: 923e2c857250b784eb3a49ce857086c2, type: 3}
+--- !u!1 &8004753099682490679 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 152186, guid: 923e2c857250b784eb3a49ce857086c2, type: 3}
+  m_PrefabInstance: {fileID: 8004753099682642765}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &721848673205607660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8004753099682490679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c71721f941bfbe14f816e82ae7c4293e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CollisionForwarder
+  UIscreen: {fileID: 0}
 --- !u!4 &8004753099682827821 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 472416, guid: 923e2c857250b784eb3a49ce857086c2, type: 3}

@@ -11,13 +11,13 @@ GameObject:
   - component: {fileID: 6841953007132193890}
   - component: {fileID: 7682686072144877474}
   - component: {fileID: 7617892997226642592}
-  - component: {fileID: 4367295181740161666}
   - component: {fileID: -3117812525019676407}
   - component: {fileID: 7202233524845012728}
   - component: {fileID: -675915000315731459}
+  - component: {fileID: -6628661058937789103}
   m_Layer: 3
   m_Name: Apple
-  m_TagString: Untagged
+  m_TagString: 1PointFruit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,8 +32,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.00000008146034, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: 0.19339, y: 0.13, z: 3.4042}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -93,28 +93,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4367295181740161666
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1431922100740042328}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -472147775963580301, guid: caab2efa4379a3a4da20ce3a2090b32b, type: 3}
 --- !u!54 &-3117812525019676407
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -172,5 +150,24 @@ MonoBehaviour:
   destroyOriginal: 1
   addRigidbodyToPieces: 1
   addVelocityMultiplier: 1
-  sliceSfxPrefab: {fileID: 0}
-  sliceParticlesPrefab: {fileID: 0}
+--- !u!135 &-6628661058937789103
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431922100740042328}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.45558327
+  m_Center: {x: 0, y: 0.078135684, z: 0}
