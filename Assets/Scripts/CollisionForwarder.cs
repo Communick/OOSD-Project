@@ -42,7 +42,7 @@ public class CollisionForwarder : MonoBehaviour
         if (collider.CompareTag("Bomb"))
         {
             collider.GetComponent<ParticleSystem>().Play();
-            Destroy(collider);
+            Destroy(collider.gameObject);
             HP--;
             UIscreen.LifeCounter(HP);
         }

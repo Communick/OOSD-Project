@@ -114,6 +114,8 @@ MonoBehaviour:
   velocityEstimator: {fileID: 412915011255888713}
   bladeTip: {fileID: 165562887323731239}
   UIscreen: {fileID: 0}
+  target: {fileID: 0}
+  plane: {fileID: 0}
   started: 0
   minCuttingSpeed: 0.1
 --- !u!1 &135496
@@ -180,7 +182,7 @@ GameObject:
   - component: {fileID: 434460}
   - component: {fileID: 6535606}
   - component: {fileID: 2250669836953623774}
-  - component: {fileID: 3538207252360167121}
+  - component: {fileID: 6907195097942055528}
   m_Layer: 0
   m_Name: collider2
   m_TagString: Untagged
@@ -334,7 +336,7 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
---- !u!114 &3538207252360167121
+--- !u!114 &6907195097942055528
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -563,6 +565,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69c1b0c809a28db4698fc33391f0745e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VelocityEstimator
-  velocityAverageFrames: 5
-  angularVelocityAverageFrames: 11
+  velocityAverageFrames: 1
+  angularVelocityAverageFrames: 1
   estimateOnAwake: 1

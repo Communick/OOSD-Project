@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4066575600827916321
+--- !u!1 &6019543464314890658
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,13 +8,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8301785261529005905}
-  - component: {fileID: 2894084031117146203}
-  - component: {fileID: 2115440032576409997}
-  - component: {fileID: -8402533981268006688}
-  - component: {fileID: -2992872852036545295}
-  - component: {fileID: -7567208920810944536}
-  - component: {fileID: -1316916317651534851}
+  - component: {fileID: 8448860617920263406}
+  - component: {fileID: 5894153488511111356}
+  - component: {fileID: 8100874398464837503}
+  - component: {fileID: 3934052121641900187}
+  - component: {fileID: 3317447078247864915}
+  - component: {fileID: -3961907430140863168}
   m_Layer: 3
   m_Name: Coconut
   m_TagString: 3PointFruit
@@ -22,36 +21,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8301785261529005905
+--- !u!4 &8448860617920263406
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4066575600827916321}
+  m_GameObject: {fileID: 6019543464314890658}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0.2826085, y: 1.18, z: 4.31}
-  m_LocalScale: {x: 50, y: 50, z: 50}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.0759, y: 2.30976, z: -0.88325}
+  m_LocalScale: {x: 15, y: 17.25, z: 15}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &2894084031117146203
+--- !u!33 &5894153488511111356
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4066575600827916321}
-  m_Mesh: {fileID: -9032557090061056480, guid: 3be741f661e460941b4e0bfac80ce35d, type: 3}
---- !u!23 &2115440032576409997
+  m_GameObject: {fileID: 6019543464314890658}
+  m_Mesh: {fileID: -5750084716789328873, guid: 1c2848643b4c73b45a9eeea213552d09, type: 3}
+--- !u!23 &8100874398464837503
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4066575600827916321}
+  m_GameObject: {fileID: 6019543464314890658}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -70,9 +69,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -5796795938667226558, guid: 3be741f661e460941b4e0bfac80ce35d, type: 3}
-  - {fileID: 7258343418837397324, guid: 3be741f661e460941b4e0bfac80ce35d, type: 3}
-  - {fileID: 2565904769104933234, guid: 3be741f661e460941b4e0bfac80ce35d, type: 3}
+  - {fileID: 2100000, guid: c5757d7ff24ff90448740efd83286ddd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -95,13 +92,48 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!54 &-8402533981268006688
+--- !u!64 &3934052121641900187
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6019543464314890658}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5750084716789328873, guid: 1c2848643b4c73b45a9eeea213552d09, type: 3}
+--- !u!114 &3317447078247864915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6019543464314890658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a5c0fc0c9c92c8449b25553f5ed26ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FruitPropulsionBehavior
+  fruit: {fileID: -3961907430140863168}
+--- !u!54 &-3961907430140863168
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4066575600827916321}
+  m_GameObject: {fileID: 6019543464314890658}
   serializedVersion: 5
   m_Mass: 1
   m_LinearDamping: 0
@@ -122,54 +154,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-2992872852036545295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4066575600827916321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a5c0fc0c9c92c8449b25553f5ed26ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FruitPropulsionBehavior
-  fruit: {fileID: -8402533981268006688}
---- !u!114 &-7567208920810944536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4066575600827916321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78d71bb0f1088044192459d79e1deee4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SliceableFruit
-  capMaterial: {fileID: 2100000, guid: 4a3a5ebab92457e4eb5f50a8288bb175, type: 2}
-  pieceSeparation: 0.02
-  destroyOriginal: 1
-  addRigidbodyToPieces: 1
-  addVelocityMultiplier: 1
---- !u!135 &-1316916317651534851
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4066575600827916321}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 100
-  m_Center: {x: 0, y: 0, z: 0}

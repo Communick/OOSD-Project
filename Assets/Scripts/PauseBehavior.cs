@@ -7,12 +7,11 @@ public class PauseBehavior : MonoBehaviour
     [SerializeField]
     private GameOver_and_UI GOUI;
     [SerializeField]
-    private PlayerBehavior player;
+    private GameObject playerCamera;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         pauseMenu.SetActive(false);
-        transform.position = player.transform.position + new Vector3(0, 0, 1.5f);
     }
 
     // Update is called once per frame
@@ -23,7 +22,7 @@ public class PauseBehavior : MonoBehaviour
             Time.timeScale = 0f;
             pauseMenu.SetActive(true);
         }
-        transform.position = player.transform.position + new Vector3(0, 0, 1.5f);
+        transform.position = playerCamera.transform.position + new Vector3(0, 0, 1.5f);
     }
 
     public void Continue()

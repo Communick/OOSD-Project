@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2290516337775551698}
   - component: {fileID: -3285300891697690991}
   - component: {fileID: -6467262804434055580}
-  - component: {fileID: 4361166032758134451}
   - component: {fileID: 3462083629180996331}
   m_Layer: 3
   m_Name: Orange
@@ -133,23 +132,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FruitPropulsionBehavior
   fruit: {fileID: -3285300891697690991}
---- !u!114 &4361166032758134451
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 343241641949111024}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78d71bb0f1088044192459d79e1deee4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SliceableFruit
-  capMaterial: {fileID: 2100000, guid: 4a3a5ebab92457e4eb5f50a8288bb175, type: 2}
-  pieceSeparation: 0.02
-  destroyOriginal: 1
-  addRigidbodyToPieces: 1
-  addVelocityMultiplier: 1
 --- !u!135 &3462083629180996331
 SphereCollider:
   m_ObjectHideFlags: 0

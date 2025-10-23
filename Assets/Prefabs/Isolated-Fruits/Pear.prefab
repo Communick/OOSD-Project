@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3728253304504554615
+--- !u!1 &6284962682043292893
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,13 +8,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5703855006644712980}
-  - component: {fileID: 6472979924030823315}
-  - component: {fileID: 2089273648015394381}
-  - component: {fileID: -6384134062541956740}
-  - component: {fileID: 967108050363793122}
-  - component: {fileID: -832618465671280150}
-  - component: {fileID: 5586437405708074387}
+  - component: {fileID: 3968515214154803833}
+  - component: {fileID: 4298362221025151543}
+  - component: {fileID: 3812211023826548925}
+  - component: {fileID: 7017900277605241207}
+  - component: {fileID: 3613450219009465533}
+  - component: {fileID: -5849943462969401587}
   m_Layer: 3
   m_Name: Pear
   m_TagString: 1PointFruit
@@ -22,36 +21,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5703855006644712980
+--- !u!4 &3968515214154803833
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3728253304504554615}
+  m_GameObject: {fileID: 6284962682043292893}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.19339, y: 0.13, z: 3.4042}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_LocalPosition: {x: 0.0759, y: 2.30976, z: -0.88325}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &6472979924030823315
+--- !u!33 &4298362221025151543
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3728253304504554615}
-  m_Mesh: {fileID: -5225704910574816304, guid: 685f71a6c07c6c741b03aa781b9c080c, type: 3}
---- !u!23 &2089273648015394381
+  m_GameObject: {fileID: 6284962682043292893}
+  m_Mesh: {fileID: 798035055718525027, guid: 983be685ab65095418e1dc30b220e26c, type: 3}
+--- !u!23 &3812211023826548925
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3728253304504554615}
+  m_GameObject: {fileID: 6284962682043292893}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -70,7 +69,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 92374bc8ec582f14f98f2e8f20d5f9b7, type: 2}
+  - {fileID: 2100000, guid: 4e4dde151e880bd418c54931f8c4bcd8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -93,13 +92,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!54 &-6384134062541956740
+--- !u!54 &7017900277605241207
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3728253304504554615}
+  m_GameObject: {fileID: 6284962682043292893}
   serializedVersion: 5
   m_Mass: 1
   m_LinearDamping: 0
@@ -120,43 +119,13 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &967108050363793122
-MonoBehaviour:
+--- !u!64 &3613450219009465533
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3728253304504554615}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a5c0fc0c9c92c8449b25553f5ed26ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FruitPropulsionBehavior
-  fruit: {fileID: -6384134062541956740}
---- !u!114 &-832618465671280150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3728253304504554615}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78d71bb0f1088044192459d79e1deee4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SliceableFruit
-  capMaterial: {fileID: 2100000, guid: 4a3a5ebab92457e4eb5f50a8288bb175, type: 2}
-  pieceSeparation: 0.02
-  destroyOriginal: 1
-  addRigidbodyToPieces: 1
-  addVelocityMultiplier: 1
---- !u!135 &5586437405708074387
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3728253304504554615}
+  m_GameObject: {fileID: 6284962682043292893}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -168,6 +137,20 @@ SphereCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 9.588858
-  m_Center: {x: 5.000001, y: 7.8981895, z: -13.253919}
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 798035055718525027, guid: 983be685ab65095418e1dc30b220e26c, type: 3}
+--- !u!114 &-5849943462969401587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6284962682043292893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a5c0fc0c9c92c8449b25553f5ed26ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FruitPropulsionBehavior
+  fruit: {fileID: 7017900277605241207}

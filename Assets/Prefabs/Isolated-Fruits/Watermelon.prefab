@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: -3434990953124491188}
   - component: {fileID: -2192125766076374760}
   - component: {fileID: -4260081347966442793}
-  - component: {fileID: -4876147441977712906}
   m_Layer: 3
   m_Name: Watermelon
   m_TagString: 1PointFruit
@@ -155,20 +154,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FruitPropulsionBehavior
   fruit: {fileID: -3434990953124491188}
---- !u!114 &-4876147441977712906
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8736014009488940488}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78d71bb0f1088044192459d79e1deee4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SliceableFruit
-  capMaterial: {fileID: 2100000, guid: 4a3a5ebab92457e4eb5f50a8288bb175, type: 2}
-  pieceSeparation: 0.02
-  destroyOriginal: 1
-  addRigidbodyToPieces: 1
-  addVelocityMultiplier: 1

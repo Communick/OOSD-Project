@@ -1,117 +1,82 @@
 using UnityEngine;
 using EzySlice;
-using UnityEngine.UI;
+using System.Collections.Generic;
+using System.Collections;
 
 public class PlayerBehavior : MonoBehaviour
 {
-    [SerializeField]
-    private LayerMask sliceableLayer;
-    [SerializeField]
-    private Transform startSlicePoint;
-    [SerializeField]
-    private Material crossSectionMaterial;
-    [SerializeField]
-    private int cutforce = 2000;
-    [SerializeField]
-    private VelocityEstimator velocityEstimator;
-    public Transform bladeTip;
-    [SerializeField]
-    private GameOver_and_UI UIscreen;
-    public bool started = false;
+    [SerializeField] private LayerMask sliceableLayer;
+    [SerializeField] private Transform startSlicePoint;
+    [SerializeField] private Material crossSectionMaterial;
+    [SerializeField] private int cutForce = 2000;
+    [SerializeField] private VelocityEstimator velocityEstimator;
+    [SerializeField] private Transform bladeTip;
+    [SerializeField] private GameOver_and_UI UIscreen;
 
-    public float minCuttingSpeed = 1.5f;
+    private HashSet<GameObject> recentlySliced = new HashSet<GameObject>();
+    private float sliceCooldown = 0.15f;
 
-    Vector3 lastTipPos;
-    Vector3 tipVelocity;
+    public bool started;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (bladeTip == null) bladeTip = transform; // fallback
-        lastTipPos = bladeTip.position;
+        started = false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        var pos = bladeTip.position;
-        tipVelocity = (pos - lastTipPos) / Mathf.Max(Time.deltaTime, 1e-6f);
-        lastTipPos = pos;
-    }
     void FixedUpdate()
     {
-        bool hasHit = Physics.Linecast(startSlicePoint.position, bladeTip.position, out RaycastHit hit, sliceableLayer);
-        if (hasHit)
+        if (Physics.Linecast(startSlicePoint.position, bladeTip.position, out RaycastHit hit, sliceableLayer))
         {
-            GameObject target = hit.transform.gameObject;
-            SliceOBJ(target);
+            GameObject target = hit.collider.gameObject;
+            if (!recentlySliced.Contains(target))
+            {
+                StartCoroutine(RegisterSliceCooldown(target)); // Marque cet objet comme "deja coupe" pendant un court delai
+                SliceObject(target);
+            }
         }
     }
 
-    // If your BladeTrigger is a separate trigger object with OnTriggerEnter, you can call this there.
-    // We'll provide a trigger helper: call TrySliceFromCollision with collision contact.
-    /*public void TrySliceFromCollider(Collider other, Vector3 contactPoint, Vector3 contactNormal)
+    private  IEnumerator RegisterSliceCooldown(GameObject obj)
     {
-        // Only slice on matching layer
-        if (((1 << other.gameObject.layer) & sliceableLayer.value) == 0) return;
-
-        if (tipVelocity.magnitude < minCuttingSpeed) return; // too slow to cut
-
-        // Compute plane using blade's local orientation:
-        Vector3 planeNormal = transform.up; // or transform.right depending on blade orientation
-        // Use direction of swing to orient plane better:
-        if (tipVelocity.sqrMagnitude > 0.01f)
-        {
-            // plane normal can be cross product between blade direction and swing direction for sharp plane
-            Vector3 bladeForward = transform.forward;
-            planeNormal = Vector3.Cross(bladeForward, tipVelocity).normalized;
-            if (planeNormal.sqrMagnitude < 0.01f) planeNormal = transform.up;
-        }
-
-        // Slight offset so plane doesn't exactly slice at contact.
-        Vector3 planePos = contactPoint + planeNormal;
-
-        // try to get SliceableFruit on other
-        SliceableFruit sf = other.GetComponentInParent<SliceableFruit>();
-        if (sf == null) sf = other.GetComponent<SliceableFruit>();
-        if (sf != null)
-        {
-            sf.Slice(planePos, planeNormal, tipVelocity);
-        }
-        else
-        {
-            // If object not using SliceableFruit component, try slice with static helper
-            var helper = other.GetComponentInParent<SliceableFruit>(); // optional
-        }
-    }*/
-
-    public void SliceOBJ(GameObject target)
-    {
-        Vector3 velocity = velocityEstimator.GetVelocityEstimate();
-        Vector3 planenormal = Vector3.Cross(bladeTip.position - startSlicePoint.position, velocity);
-        planenormal.Normalize();
-
-        SlicedHull hull = target.Slice(bladeTip.position, planenormal);
-
-        if (hull != null)
-        {
-            target.GetComponent<ParticleSystem>().Play();
-
-            GameObject upperHull = hull.CreateUpperHull(target, crossSectionMaterial);
-            SetupSliceComponent(upperHull);
-
-            GameObject lowerHull = hull.CreateLowerHull(target, crossSectionMaterial);
-            SetupSliceComponent(lowerHull);
-
-            Destroy(target);
-        }
+        recentlySliced.Add(obj);
+        UIscreen.comboMult += 1;
+        yield return new WaitForSeconds(sliceCooldown);
+        recentlySliced.Remove(obj);
     }
 
-    public void SetupSliceComponent(GameObject slicedObject)
+    public void SliceObject(GameObject target)
     {
-        Rigidbody rigidbody = slicedObject.AddComponent<Rigidbody>();
-        MeshCollider collider = slicedObject.AddComponent<MeshCollider>();
-        collider.convex = true;
-        rigidbody.AddExplosionForce(cutforce, slicedObject.transform.position, 1);
+        if (target == null) return;
+
+        // Fruit normal
+        SlicedHull hull = target.Slice(target.transform.position, Vector3.up, crossSectionMaterial);
+        if (hull == null) return;
+
+        GameObject upperHull = hull.CreateUpperHull(target, crossSectionMaterial);
+        GameObject lowerHull = hull.CreateLowerHull(target, crossSectionMaterial);
+
+        Rigidbody originalRb = target.GetComponent<Rigidbody>();
+        Vector3 originalVelocity = originalRb ? originalRb.linearVelocity : Vector3.zero;
+        Vector3 originalAngularVelocity = originalRb ? originalRb.angularVelocity : Vector3.zero;
+
+        AddPhysicsToSlice(upperHull, originalVelocity, originalAngularVelocity);
+        AddPhysicsToSlice(lowerHull, originalVelocity, originalAngularVelocity);
+
+        Destroy(target);
+    }
+
+
+    private void AddPhysicsToSlice(GameObject slicedObject, Vector3 inheritedVelocity, Vector3 inheritedAngularVelocity)
+    {
+        if (slicedObject == null) return;
+
+        Rigidbody rb = slicedObject.AddComponent<Rigidbody>();
+        SphereCollider sc = slicedObject.AddComponent<SphereCollider>();
+
+        rb.linearVelocity = inheritedVelocity;
+        rb.angularVelocity = inheritedAngularVelocity;
+        rb.AddExplosionForce(cutForce, slicedObject.transform.position, 5f);
+        rb.AddTorque(Random.insideUnitSphere * 3f, ForceMode.Impulse);
+        Destroy(slicedObject, 8f);
     }
 }
