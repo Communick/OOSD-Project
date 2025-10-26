@@ -36,12 +36,8 @@ public class CollisionForwarder : MonoBehaviour
         }
         if (collider.CompareTag("Bomb"))
         {
-<<<<<<< Updated upstream
-            collider.gameObject.GetComponent<AudioSource>().Play();
-=======
             bombAudio.GetComponent<AudioSource>().Play();
             particles.GetComponent<ParticleSystem>().Play();
->>>>>>> Stashed changes
             Destroy(collider.gameObject);
             UIscreen.LifeCounter(-1);
         }
