@@ -6,6 +6,8 @@ public class CollisionForwarder : MonoBehaviour
 {
     [SerializeField]
     private GameOver_and_UI UIscreen;
+    [SerializeField]
+    private GameObject player;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,6 +22,7 @@ public class CollisionForwarder : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
+        player.GetComponent<AudioSource>().Play();
         collider.gameObject.GetComponent<ParticleSystem>().Play();
         if (collider.CompareTag("1PointFruit"))
         {
