@@ -7,7 +7,7 @@ public class CollisionForwarder : MonoBehaviour
     [SerializeField]
     private GameOver_and_UI UIscreen;
     [SerializeField]
-    private GameObject player;
+    private GameObject player, bombAudio, particles;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -36,7 +36,12 @@ public class CollisionForwarder : MonoBehaviour
         }
         if (collider.CompareTag("Bomb"))
         {
+<<<<<<< Updated upstream
             collider.gameObject.GetComponent<AudioSource>().Play();
+=======
+            bombAudio.GetComponent<AudioSource>().Play();
+            particles.GetComponent<ParticleSystem>().Play();
+>>>>>>> Stashed changes
             Destroy(collider.gameObject);
             UIscreen.LifeCounter(-1);
         }
