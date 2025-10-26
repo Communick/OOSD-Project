@@ -22,27 +22,28 @@ public class CollisionForwarder : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        player.GetComponent<AudioSource>().Play();
+        
         collider.gameObject.GetComponent<ParticleSystem>().Play();
         if (collider.CompareTag("1PointFruit"))
         {
-            
             UIscreen.UpdateScore(1);
-            
+            player.GetComponent<AudioSource>().Play();
         }
         if (collider.CompareTag("3PointFruit"))
         {
-            
             UIscreen.UpdateScore(3);
+            player.GetComponent<AudioSource>().Play();
         }
         if (collider.CompareTag("Bomb"))
         {
             Destroy(collider.gameObject);
+            collider.GetComponent<AudioSource>().Play();
             UIscreen.LifeCounter(-1);
         }
         if (collider.CompareTag("Pearto"))
         {
             UIscreen.UpdateScore(5);
+            player.GetComponent<AudioSource>().Play();
         }
     }
 }
