@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FruitPropulsionBehavior
   fruit: {fileID: -3961907430140863168}
-  force: 5
+  force: 10
 --- !u!54 &-3961907430140863168
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4990,7 +4990,7 @@ ParticleSystemRenderer:
   m_MeshDistribution: 0
   m_SortMode: 0
   m_MinParticleSize: 0
-  m_MaxParticleSize: 0.25
+  m_MaxParticleSize: 0.025
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2

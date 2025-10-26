@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FruitPropulsionBehavior
   fruit: {fileID: -6706849913270389275}
-  force: 5
+  force: 10
 --- !u!64 &17385483549067275
 MeshCollider:
   m_ObjectHideFlags: 0

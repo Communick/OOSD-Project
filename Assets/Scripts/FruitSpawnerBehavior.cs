@@ -58,7 +58,7 @@ public class FruitSpawnerBehavior : MonoBehaviour
                         else spawnFrequency = 20f;
                         break;
                 }
-                fruitforce = 100;
+                fruitforce = 10;
                 break;
             case 1:
                 switch (spawnerID)
@@ -80,7 +80,7 @@ public class FruitSpawnerBehavior : MonoBehaviour
                         bombSpawnFrequency = Random.Range(5.5f, 7.5f) + 6;
                         break;
                 }
-                fruitforce = 3;
+                fruitforce = 10;
                 break;
             case 2:
                 switch (spawnerID)
@@ -102,7 +102,7 @@ public class FruitSpawnerBehavior : MonoBehaviour
                         bombSpawnFrequency = Random.Range(4f, 6f) + 6;
                         break;
                 }
-                fruitforce = 4;
+                fruitforce = 10;
                 break;
             case 3:
                 switch (spawnerID)
@@ -124,7 +124,7 @@ public class FruitSpawnerBehavior : MonoBehaviour
                         bombSpawnFrequency = Random.Range(3f, 5f) + 6;
                         break;
                 }
-                fruitforce = 5;
+                fruitforce = 10;
                 break;
             case 4:
                 switch (spawnerID)
@@ -146,7 +146,7 @@ public class FruitSpawnerBehavior : MonoBehaviour
                         bombSpawnFrequency = Random.Range(2f, 4f) + 5;
                         break;
                 }
-                fruitforce = 6;
+                fruitforce = 10;
                 break;
             case 5:
                 switch (spawnerID)
@@ -168,7 +168,7 @@ public class FruitSpawnerBehavior : MonoBehaviour
                         bombSpawnFrequency = 4.5f;
                         break;
                 }
-                fruitforce = 7;
+                fruitforce = 10;
                 break;
         }
     }

@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FruitPropulsionBehavior
   fruit: {fileID: 439234500671982726}
-  force: 0
+  force: 10
 --- !u!198 &-4367416858391553616
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -5032,7 +5032,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: 5e6724e90aba8694b9cf3996c3f6dd8b, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 1add9994e55ff7b43a23e76a3ef9883c, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
