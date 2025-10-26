@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Newtonsoft.Json;
 
 public class MainMenu : MonoBehaviour
 {
@@ -28,10 +29,10 @@ public class MainMenu : MonoBehaviour
         {
             Menu.SetActive(false);
         }
-        else if (!player.started)
+        else
         {
             Menu.SetActive(true);
-            Time.timeScale = 0f;
+            Time.timeScale = 0.0f;
         }
         if (difficultySelector.currentDifficulty == difficultySelector.savedDifficulty)
         {
@@ -51,7 +52,6 @@ public class MainMenu : MonoBehaviour
     public void PlayButton()
     {
         Menu.SetActive(false);
-        player.started = true;
         Time.timeScale = 1f;
     }
 
@@ -59,22 +59,18 @@ public class MainMenu : MonoBehaviour
     {
         leaderboardPanel.SetActive(true);
         string leaderboardData = System.IO.File.ReadAllText(saveScoreBehavior.filepath);
-        List<Score> leaderboardlist = JsonUtility.FromJson<List<Score>>(leaderboardData);
+        List<Score> leaderboardlist = JsonConvert.DeserializeObject<List<Score>>(leaderboardData);
         for (int i = 0; i < 10; i++)
         {
             if (leaderboardlist.Count >= 10)
             {
-                leaderboard.text += $"<align=left>{leaderboardlist[i].playerName} <align=right>{leaderboardlist[i].score} \n";
+                leaderboard.text += $"{i+1}. {leaderboardlist[i].playerName, -15} {leaderboardlist[i].score, 6} \n";
             }
             else
             {
-                for (int j = 0; j <= leaderboardlist.Count; i++)
+                for (int j = 0; j <= leaderboardlist.Count - 1; j++)
                 {
-                    leaderboard.text += $"<align=left>{leaderboardlist[i].playerName} <align=right>{leaderboardlist[i].score} \n";
-                }
-                for (int k = 0; k <= 10 - leaderboardlist.Count; k++)
-                {
-                    leaderboard.text += "Empty\n";
+                    leaderboard.text += $"{j+1}. {leaderboardlist[j].playerName, -15} {leaderboardlist[j].score, 6} \n";
                 }
                 break;
             }

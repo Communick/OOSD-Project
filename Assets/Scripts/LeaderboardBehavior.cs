@@ -1,6 +1,8 @@
+using OVRSimpleJSON;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Newtonsoft.Json;
 
 public class LeaderboardBehavior : MonoBehaviour
 {
@@ -19,7 +21,7 @@ public class LeaderboardBehavior : MonoBehaviour
         pageNumber = 1;
         pageNumberText.text = pageNumber.ToString();
         leaderboardData = System.IO.File.ReadAllText(saveScoreBehavior.filepath);
-        List<Score> leaderboardlist = JsonUtility.FromJson<List<Score>>(leaderboardData);
+        leaderboardlist = JsonConvert.DeserializeObject<List<Score>>(leaderboardData);
         if (leaderboardlist.Count / pageNumber > 10)
         {
             nextButton.SetActive(true);
@@ -34,6 +36,8 @@ public class LeaderboardBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        leaderboardData = System.IO.File.ReadAllText(saveScoreBehavior.filepath);
+        leaderboardlist = JsonConvert.DeserializeObject<List<Score>>(leaderboardData);
         pageNumberText.text = pageNumber.ToString();
         if (leaderboardlist.Count/pageNumber > 10)
         {
@@ -62,7 +66,7 @@ public class LeaderboardBehavior : MonoBehaviour
     public void ClearLeaderboard()
     {
         leaderboardlist.Clear();
-        System.IO.File.WriteAllText(saveScoreBehavior.filepath, JsonUtility.ToJson(leaderboardlist));
+        System.IO.File.WriteAllText(saveScoreBehavior.filepath, JsonConvert.SerializeObject(leaderboardlist, Formatting.Indented));
     }
 
     public void NewPage()
@@ -72,17 +76,13 @@ public class LeaderboardBehavior : MonoBehaviour
         {
             if (leaderboardlist.Count >= 10 + 10 * (pageNumber - 1))
             {
-                leaderboard.text += $"<align=left>{i+1}{leaderboardlist[i].playerName} <align=right>{leaderboardlist[i].score} \n";
+                leaderboard.text += $"{i+1}{leaderboardlist[i].playerName, -15} {leaderboardlist[i].score, 6} \n";
             }
             else
             {
-                for (int j = 0 + 10 * (pageNumber - 1); j <= leaderboardlist.Count; i++)
+                for (int j = 0 + 10 * (pageNumber - 1); j <= leaderboardlist.Count - 1; j++)
                 {
-                    leaderboard.text += $"<align=left>{j+1}{leaderboardlist[j].playerName} <align=right>{leaderboardlist[j].score} \n";
-                }
-                for (int k = 0; k <= 10 - leaderboardlist.Count%10; k++)
-                {
-                    leaderboard.text += "Empty\n";
+                    leaderboard.text += $"{j+1}{leaderboardlist[j].playerName, -15} {leaderboardlist[j].score, 6} \n";
                 }
                 break;
             }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.XR;
 
 public class PauseBehavior : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class PauseBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.JoystickButton6))
+        if (OVRInput.GetDown(OVRInput.Button.Start) || OVRInput.GetDown(OVRInput.RawButton.Start) || OVRInput.GetDown(OVRInput.Button.Three) == true)
         {
             Time.timeScale = 0f;
             pauseMenu.SetActive(true);

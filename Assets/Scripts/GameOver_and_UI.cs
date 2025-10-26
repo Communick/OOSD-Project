@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -7,20 +8,22 @@ public class GameOver_and_UI : MonoBehaviour
     [SerializeField]
     private Text scoretext, gameOverScore, comboText;
     [SerializeField]
-    private GameObject gameOverScreen, error, error1, error2, lifeSystem, playerCamera, inputNameScore;
+    private GameObject gameOverScreen, error, error1, error2, lifeSystem, playerCamera, inputNameScore, keyboard, saveButton;
     [SerializeField]
     private MainMenu MainMenu;
-    private int totalscore;
+    private int totalscore, totalife;
     public bool restarted = false;
     public int comboMult;
     public string copyScore;
-    
+    public List<GameObject> spawnedFruitList;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         scoretext.text = "000000";
         gameOverScore.text = "";
         comboText.text = "x" + comboMult.ToString();
+        saveButton.SetActive(true);
         error.SetActive(false);
         error1.SetActive(false);
         error2.SetActive(false);
@@ -29,6 +32,7 @@ public class GameOver_and_UI : MonoBehaviour
         lifeSystem.SetActive(true);
         totalscore = 0;
         comboMult = 1;
+        totalife = 3;
     }
 
     // Update is called once per frame
@@ -51,7 +55,8 @@ public class GameOver_and_UI : MonoBehaviour
 
     public void LifeCounter(int life)
     {
-        switch (life)
+        totalife += life;
+        switch (totalife)
         {
             case 2:
                 error.SetActive(true); 
@@ -63,7 +68,7 @@ public class GameOver_and_UI : MonoBehaviour
                 error2.SetActive(true);
                 break;
         }
-        if (life == 0)
+        if (totalife == 0)
         {
             gameOverScore.text = scoretext.text;
             copyScore = scoretext.text;
@@ -79,13 +84,16 @@ public class GameOver_and_UI : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         restarted = true;
+        SaveScoreBehavior saveScore = inputNameScore.GetComponent<SaveScoreBehavior>();
+        saveScore.saved = false;
     }
 
     public void MainMenuButton()
     {
         restarted = false;
-        MainMenu.gameObject.SetActive(true);
-        gameOverScreen.SetActive(false);
+        SaveScoreBehavior saveScore = inputNameScore.GetComponent<SaveScoreBehavior>();
+        saveScore.saved = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);      
     }
 
     public void QuitButton()
@@ -96,6 +104,10 @@ public class GameOver_and_UI : MonoBehaviour
 
     public void SaveScore()
     {
+        SaveScoreBehavior saveScore = inputNameScore.GetComponent<SaveScoreBehavior>();
+        if (saveScore.saved == true) saveButton.gameObject.SetActive(false);
         inputNameScore.SetActive(true);
+        keyboard.SetActive(true);
+
     }
 }

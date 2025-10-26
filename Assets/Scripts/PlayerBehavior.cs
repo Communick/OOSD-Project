@@ -16,11 +16,9 @@ public class PlayerBehavior : MonoBehaviour
     private HashSet<GameObject> recentlySliced = new HashSet<GameObject>();
     private float sliceCooldown = 0.15f;
 
-    public bool started;
-
     void Start()
     {
-        started = false;
+        
     }
 
     void FixedUpdate()

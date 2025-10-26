@@ -1,6 +1,9 @@
+using NUnit.Framework;
 using System.Collections;
 using System.Diagnostics;
 using UnityEngine;
+using System.Collections.Generic;
+using System.IO;
 
 public class FruitSpawnerBehavior : MonoBehaviour
 {
@@ -9,10 +12,9 @@ public class FruitSpawnerBehavior : MonoBehaviour
     private GameObject tomato, coconut, banana, watermelon, Apple, pear, orange, bomb, pearto, spawner;
     [SerializeField]
     private int spawnerID;
+    private float spawnFrequency, bombSpawnFrequency, fruitforce;
     [SerializeField]
-    private FruitPropulsionBehavior propulsionBehavior;
-    private float spawnFrequency;
-    private float bombSpawnFrequency;
+    private GameOver_and_UI UIScreen;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,6 +25,16 @@ public class FruitSpawnerBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        FruitPropulsionBehavior ApplepropulsionBehavior = Apple.GetComponent<FruitPropulsionBehavior>();
+        FruitPropulsionBehavior tomatopropulsionBehavior = tomato.GetComponent<FruitPropulsionBehavior>();
+        FruitPropulsionBehavior coconutpropulsionBehavior = coconut.GetComponent<FruitPropulsionBehavior>();
+        FruitPropulsionBehavior bananapropulsionBehavior = banana.GetComponent<FruitPropulsionBehavior>();
+        FruitPropulsionBehavior watermelonpropulsionBehavior = watermelon.GetComponent<FruitPropulsionBehavior>();
+        FruitPropulsionBehavior pearpropulsionBehavior = pear.GetComponent<FruitPropulsionBehavior>();
+        FruitPropulsionBehavior orangepropulsionBehavior = orange.GetComponent<FruitPropulsionBehavior>();
+        FruitPropulsionBehavior peartopropulsionBehavior = pearto.GetComponent<FruitPropulsionBehavior>();
+        FruitPropulsionBehavior bombpropulsionBehavior = bomb.GetComponent<FruitPropulsionBehavior>();
+        ApplepropulsionBehavior.force = tomatopropulsionBehavior.force = coconutpropulsionBehavior.force = bananapropulsionBehavior.force = watermelonpropulsionBehavior.force = pearpropulsionBehavior.force = orangepropulsionBehavior.force = peartopropulsionBehavior.force = bombpropulsionBehavior.force = fruitforce;
         switch (difficulty)
         {
             case 0:
@@ -46,7 +58,7 @@ public class FruitSpawnerBehavior : MonoBehaviour
                         else spawnFrequency = 20f;
                         break;
                 }
-                propulsionBehavior.force = 150;
+                fruitforce = 100;
                 break;
             case 1:
                 switch (spawnerID)
@@ -68,7 +80,7 @@ public class FruitSpawnerBehavior : MonoBehaviour
                         bombSpawnFrequency = Random.Range(5.5f, 7.5f) + 6;
                         break;
                 }
-                propulsionBehavior.force = 150;
+                fruitforce = 3;
                 break;
             case 2:
                 switch (spawnerID)
@@ -90,7 +102,7 @@ public class FruitSpawnerBehavior : MonoBehaviour
                         bombSpawnFrequency = Random.Range(4f, 6f) + 6;
                         break;
                 }
-                propulsionBehavior.force = 150;
+                fruitforce = 4;
                 break;
             case 3:
                 switch (spawnerID)
@@ -112,7 +124,7 @@ public class FruitSpawnerBehavior : MonoBehaviour
                         bombSpawnFrequency = Random.Range(3f, 5f) + 6;
                         break;
                 }
-                propulsionBehavior.force = 150;
+                fruitforce = 5;
                 break;
             case 4:
                 switch (spawnerID)
@@ -134,7 +146,7 @@ public class FruitSpawnerBehavior : MonoBehaviour
                         bombSpawnFrequency = Random.Range(2f, 4f) + 5;
                         break;
                 }
-                propulsionBehavior.force = 150;
+                fruitforce = 6;
                 break;
             case 5:
                 switch (spawnerID)
@@ -156,7 +168,7 @@ public class FruitSpawnerBehavior : MonoBehaviour
                         bombSpawnFrequency = 4.5f;
                         break;
                 }
-                propulsionBehavior.force = 150;
+                fruitforce = 7;
                 break;
         }
     }
@@ -167,51 +179,39 @@ public class FruitSpawnerBehavior : MonoBehaviour
         {
             int peartospawn = Random.Range(0, 100);
             if (peartospawn == 69) Instantiate(pearto, spawner.transform.position, Quaternion.identity);
-            int randomFruitGenProba = Random.Range(0, 5);
-            if (randomFruitGenProba == 0 && difficulty>=2)
+            int randomFruitInt = Random.Range(0, 5);
+            if (randomFruitInt == 0)
             {
-                randomFruitGen = Random.Range(0, 3);
+                randomFruit = Random.Range(0, 2);
             }
             else
             {
-                randomFruitGen = 0;
+                randomFruit = Random.Range(2, 7);
             }
-            for (int i = 0; i <= randomFruitGen; i++)
+            switch (randomFruit)
             {
-                int randomFruitInt = Random.Range(0, 5);
-                if (randomFruitInt == 0)
-                {
-                    randomFruit = Random.Range(0, 2);
-                }
-                else
-                {
-                    randomFruit = Random.Range(2, 7);
-                }
-                switch (randomFruit)
-                {
-                    case 0:
-                        Instantiate(tomato, spawner.transform.position, Quaternion.identity);
-                        break;
-                    case 1:
-                        Instantiate(coconut, spawner.transform.position, Quaternion.identity);
-                        break;
-                    case 2:
-                        Instantiate(banana, spawner.transform.position, Quaternion.identity);
-                        break;
-                    case 3:
-                        Instantiate(watermelon, spawner.transform.position, Quaternion.identity);
-                        break;
-                    case 4:
-                        Instantiate(Apple, spawner.transform.position, Quaternion.identity);
-                        break;
-                    case 5:
-                        Instantiate(pear, spawner.transform.position, Quaternion.identity);
-                        break;
-                    case 6:
-                        Instantiate(orange, spawner.transform.position, Quaternion.identity);
-                        break;
-                }
-            } 
+                case 0:
+                    Instantiate(tomato, spawner.transform.position, Quaternion.identity);
+                    break;
+                case 1:
+                    Instantiate(coconut, spawner.transform.position, Quaternion.identity);
+                    break;
+                case 2:
+                    Instantiate(banana, spawner.transform.position, Quaternion.identity);
+                    break;
+                case 3:
+                    Instantiate(watermelon, spawner.transform.position, Quaternion.identity);
+                    break;
+                case 4:
+                    Instantiate(Apple, spawner.transform.position, Quaternion.identity);
+                    break;
+                case 5:
+                    Instantiate(pear, spawner.transform.position, Quaternion.identity);
+                    break;
+                case 6:
+                    Instantiate(orange, spawner.transform.position, Quaternion.identity);
+                    break;
+            }
             yield return new WaitForSeconds(spawnFrequency);
         }
     }

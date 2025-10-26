@@ -4,12 +4,13 @@ public class FruitPropulsionBehavior : MonoBehaviour
 {
     [SerializeField]
     private Rigidbody fruit;
-    public int force = 150;
+    public float force;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         fruit.linearVelocity = Vector3.zero;
-        fruit.AddForce((new Vector3(0, 0, 0) - transform.position) * force);
+        Vector3 direction = (new Vector3(0, 0, 1) - transform.position).normalized;
+        fruit.AddForce(direction * force, ForceMode.Impulse);
         if (Time.timeSinceLevelLoad < 1)
         {
             Destroy(gameObject, 0.001f);
