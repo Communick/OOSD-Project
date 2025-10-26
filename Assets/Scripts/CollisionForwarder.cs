@@ -36,10 +36,10 @@ public class CollisionForwarder : MonoBehaviour
         }
         if (collider.CompareTag("Bomb"))
         {
-            bombAudio.GetComponent<AudioSource>().Play();
-            particles.GetComponent<ParticleSystem>().Play();
-            Destroy(collider.gameObject);
             UIscreen.LifeCounter(-1);
+            collider.gameObject.GetComponent<AudioSource>().Play();
+            particles.GetComponent<ParticleSystem>().Play();
+            Destroy(collider.gameObject, collider.gameObject.GetComponent<AudioSource>().clip.length);
         }
         if (collider.CompareTag("Pearto"))
         {
